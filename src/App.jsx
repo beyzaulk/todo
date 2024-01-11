@@ -1,12 +1,20 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
+import { Task } from "./components/Task";
+
+const LOCAL_STORAGE_KEY = "todo:tasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  function setTasksAndSave(newTasks) {
+    setTasks(newTasks);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
+  }
+
   function addTask(taskTitle) {
-    setTasks([
+    setTasksAndSave([
       ...tasks,
       {
         id: crypto.randomUUID(),
@@ -31,7 +39,7 @@ function App() {
       }
       return task;
     });
-    setTasks(newTasks);
+    setTasksAndSave(newTasks);
   }
 
   return (

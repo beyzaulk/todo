@@ -15,11 +15,11 @@ export function Task({ task, onComplete, onDelete }) {
           {task.isCompleted ? <BsFillCheckCircleFill /> : <div />}
         </button>
         <p className={task.isCompleted ? styles.textCompleted : ""}>
-          {task.title}{" "}
+          {task.title}
         </p>
         <button
           className={styles.deleteButton}
-          onClick={() => onDelete(task.id)}
+          onClick={() => onDelete(task?.id || " ")}
         >
           <TbTrash size={30} />
         </button>
