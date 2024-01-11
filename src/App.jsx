@@ -16,13 +16,13 @@ function App() {
     ]);
   }
 
-  function toggleTaskCompletedById(taskId){
-    const newTasks = tasks.map(task => {
-      if(task.id === taskId) {
+  function toggleTaskCompletedById(taskId) {
+    const newTasks = tasks.map((task) => {
+      if (task.id === taskId) {
         return {
           ...task,
-          isCompleted: !task.isCompleted
-        }
+          isCompleted: !task.isCompleted,
+        };
       }
       return task;
     });
@@ -32,8 +32,7 @@ function App() {
   return (
     <>
       <Header onAddTask={addTask} />
-      <Tasks tasks={tasks} />
-      onComplete={toggleTaskCompletedById}
+      <Tasks tasks={tasks} onComplete={toggleTaskCompletedById} />
     </>
   );
 }
