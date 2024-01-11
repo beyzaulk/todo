@@ -7,13 +7,14 @@ import styles from "./header.module.css";
 export function Header({ onAddTask }) {
   const [title, setTitle] = useState("");
 
-  function handleSubmit() {
-    onAddTask();
+  function handleSubmit(event) {
+    event.preventDefault();
+    onAddTask(title);
   }
 
   function onChangeTitle(event) {
-    setTitle(event?.target?.value || '');
-    }
+    setTitle(event?.target?.value || "");
+  }
 
   return (
     <div>
@@ -28,7 +29,7 @@ export function Header({ onAddTask }) {
           />
           <button>
             Create
-            <CiCirclePlus size={20} />
+            <CiCirclePlus size={30} />
           </button>
         </form>
       </header>

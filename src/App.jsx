@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
 
@@ -10,7 +10,7 @@ function App() {
       ...tasks,
       {
         id: crypto.randomUUID(),
-        title: taskTitlr,
+        title: taskTitle,
         isCompleted: false,
       },
     ]);
@@ -18,8 +18,8 @@ function App() {
 
   return (
     <>
-      <Header onAddTask=(addTask) />
-      <Tasks />
+      <Header onAddTask={addTask} />
+      <Tasks tasks={tasks} />
     </>
   );
 }
