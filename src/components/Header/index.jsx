@@ -1,6 +1,7 @@
 import React from "react";
 
 import Logo from "../../assets/Logo.svg";
+import { CiCirclePlus } from "react-icons/ci";
 import styles from "./header.module.css";
 
 export function Header() {
@@ -10,7 +11,10 @@ export function Header() {
         <img src={Logo} />
         <form className={styles.newTaskForm}>
           <input placeholder="add a new task" type="text" />
-          <button>Create</button>
+          <button>
+            Create
+            <CiCirclePlus />
+          </button>
         </form>
       </header>
     </div>
