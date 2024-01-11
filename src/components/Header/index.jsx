@@ -13,7 +13,7 @@ export function Header() {
           <input placeholder="add a new task" type="text" />
           <button>
             Create
-            <CiCirclePlus />
+            <CiCirclePlus size={20} />
           </button>
         </form>
       </header>
