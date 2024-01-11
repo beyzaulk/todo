@@ -10,6 +10,10 @@ export function Task() {
           <p>Create Tasks</p>
           <span>10</span>
         </div>
+        <div>
+          <p>Completed Tasks</p>
+          <span>1 of 10</span>
+        </div>
       </header>
     </section>
   );
