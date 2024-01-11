@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
-import { Task } from "./components/Task";
 
 const LOCAL_STORAGE_KEY = "todo:tasks";
 
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  function loadSavedTasks() {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      setTasks(JSON.parse(saved));
+    }
+  }
+
   function setTasksAndSave(newTasks) {
     setTasks(newTasks);
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
   }
 
+  useEffect(() => {
+    loadSavedTasks();
+  }, []);
   function addTask(taskTitle) {
     setTasksAndSave([
       ...tasks,
