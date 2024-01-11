@@ -3,11 +3,22 @@ import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [tasks, setTasks] = useState([]);
+
+  function addTask(taskTitle) {
+    setTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        title: taskTitlr,
+        isCompleted: false,
+      },
+    ]);
+  }
 
   return (
     <>
-      <Header />
+      <Header onAddTask=(addTask) />
       <Tasks />
     </>
   );
