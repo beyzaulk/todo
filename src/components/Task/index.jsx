@@ -1,8 +1,8 @@
 import React from "react";
-
-import styles from "./task.module.css";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import { TbTrash } from "react-icons/tb";
+
+import styles from "./task.module.css";
 
 export function Task({ task, onComplete, onDelete }) {
   return (
