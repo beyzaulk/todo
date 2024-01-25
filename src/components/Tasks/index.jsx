@@ -1,9 +1,8 @@
-import React from "react";
-
 import { Task } from "../Task";
+
 import styles from "./tasks.module.css";
 
-export function Tasks({ tasks, onComplete, onDelete}) {
+export function Tasks({ tasks, onComplete, onDelete }) {
   const tasksQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
 
@@ -16,12 +15,19 @@ export function Tasks({ tasks, onComplete, onDelete}) {
         </div>
         <div>
           <p className={styles.textPurple}>Completed </p>
-          <span>{completedTasks} of {tasksQuantity} </span>
+          <span>
+            {completedTasks} of {tasksQuantity}{" "}
+          </span>
         </div>
       </header>
       <div className="styles.list">
         {tasks.map((task) => (
-          <Task key={task.id} task={task} onComplete={onComplete} onDelete={onDelete} />
+          <Task
+            key={task.id}
+            task={task}
+            onComplete={onComplete}
+            onDelete={onDelete}
+          />
         ))}
       </div>
     </section>
