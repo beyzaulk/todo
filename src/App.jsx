@@ -8,6 +8,10 @@ const LOCAL_STORAGE_KEY = "todo:tasks";
 function App() {
   const [tasks, setTasks] = useState([]);
 
+  useEffect(() => {
+    loadSavedTasks();
+  }, []);
+
   function loadSavedTasks() {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     if (saved) {
@@ -20,9 +24,6 @@ function App() {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newTasks));
   }
 
-  useEffect(() => {
-    loadSavedTasks();
-  }, []);
   function addTask(taskTitle) {
     setTasksAndSave([
       ...tasks,
