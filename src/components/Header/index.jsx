@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { CiCirclePlus } from "react-icons/ci";
 
 import Logo from "../../assets/Logo.svg";
-import { CiCirclePlus } from "react-icons/ci";
+
 import styles from "./header.module.css";
 
 export function Header({ onAddTask }) {
